@@ -38,7 +38,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #add8e6; /* Slightly darker blue when hovering */
 }
-
-/* Firefox */
-scrollbar-width: thin; /* Makes the scrollbar thin */
-scrollbar-color: #87cefa #f0f8ff; /* Thumb color and track color */
