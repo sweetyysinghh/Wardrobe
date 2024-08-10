@@ -1,39 +1,57 @@
 import { ResponsivePie } from "@nivo/pie";
 import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
-import { mockPieData as data } from "../data/mock_data";
 
 const PieChart = () => {
   const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+  const colors = {
+    red: "#FF6347",   // Tomato
+    blue: "#1E90FF",  // DodgerBlue
+    green: "#3CB371", // MediumSeaGreen
+    yellow: "#FFD700",// Gold
+    orange: "#FFA500",// Orange
+    purple: "#6A5ACD",// SlateBlue
+    pink: "#FFB6C1",  // LightPink
+  };
+
+  const mockPieData = [
+    { id: "red", label: "Red", value: 15, color: colors.red },
+    { id: "blue", label: "Blue", value: 20, color: colors.blue },
+    { id: "green", label: "Green", value: 25, color: colors.green },
+    { id: "yellow", label: "Yellow", value: 30, color: colors.yellow },
+    { id: "orange", label: "Orange", value: 35, color: colors.orange },
+    { id: "purple", label: "Purple", value: 10, color: colors.purple },
+    { id: "pink", label: "Pink", value: 5, color: colors.pink },
+  ];
+
   return (
     <ResponsivePie
-      data={data}
+      data={mockPieData}
       theme={{
         axis: {
           domain: {
             line: {
-              stroke: colors.grey[100],
+              stroke: colors.grey ? colors.grey[100] : "#FFF",
             },
           },
           legend: {
             text: {
-              fill: colors.grey[100],
+              fill: colors.grey ? colors.grey[100] : "#FFF",
             },
           },
           ticks: {
             line: {
-              stroke: colors.grey[100],
+              stroke: colors.grey ? colors.grey[100] : "#FFF",
               strokeWidth: 1,
             },
             text: {
-              fill: colors.grey[100],
+              fill: colors.grey ? colors.grey[100] : "#FFF",
             },
           },
         },
         legends: {
           text: {
-            fill: colors.grey[100],
+            fill: colors.grey ? colors.grey[100] : "#FFF",
           },
         },
       }}
@@ -47,7 +65,7 @@ const PieChart = () => {
         modifiers: [["darker", 0.2]],
       }}
       arcLinkLabelsSkipAngle={10}
-      arcLinkLabelsTextColor={colors.grey[100]}
+      arcLinkLabelsTextColor={colors.grey ? colors.grey[100] : "#FFF"}
       arcLinkLabelsThickness={2}
       arcLinkLabelsColor={{ from: "color" }}
       enableArcLabels={false}
@@ -57,26 +75,6 @@ const PieChart = () => {
         from: "color",
         modifiers: [["darker", 2]],
       }}
-      defs={[
-        {
-          id: "dots",
-          type: "patternDots",
-          background: "inherit",
-          color: "rgba(255, 255, 255, 0.3)",
-          size: 4,
-          padding: 1,
-          stagger: true,
-        },
-        {
-          id: "lines",
-          type: "patternLines",
-          background: "inherit",
-          color: "rgba(255, 255, 255, 0.3)",
-          rotation: -45,
-          lineWidth: 6,
-          spacing: 10,
-        },
-      ]}
       legends={[
         {
           anchor: "bottom",
@@ -102,6 +100,7 @@ const PieChart = () => {
           ],
         },
       ]}
+      colors={({ id }) => colors[id]}
     />
   );
 };

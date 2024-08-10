@@ -1,15 +1,13 @@
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Button, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import EmailIcon from "@mui/icons-material/Email";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import TrafficIcon from "@mui/icons-material/Traffic";
 import Header from "../../components/Header";
-import BarChart from "../../components/BarChart";
-import StatBox from "../../components/StatBox";
-import ProgressCircle from "../../components/ProgressCircle";
+
+// Import images from the images folder
+import img1 from '../../images/image1.png'; 
+import img2 from '../../images/image2.png'; 
+import img3 from '../../images/image3.png';
+import img4 from '../../images/image4.png';
 
 const Wardrobe_Management_System = () => {
   const theme = useTheme();
@@ -19,7 +17,7 @@ const Wardrobe_Management_System = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="Wardrobe" subtitle="Welcome to your Wardrobe" />
+        <Header title="Personalized Fashion Chronicle" subtitle="Effortlessly Organize and Optimize Your Closet" />
 
         <Box>
           <Button
@@ -36,11 +34,47 @@ const Wardrobe_Management_System = () => {
           </Button>
         </Box>
       </Box>
-      <Box><img src="https://png.pngtree.com/thumb_back/fw800/background/20230616/pngtree-contemporary-glass-walk-in-closet-with-blue-accents-in-3d-rendering-image_3607678.png"  
-      className="center"/></Box>
-      </Box>
 
-     
+      {/* IMAGE GRID CENTERED */}
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="70vh"  
+      >
+        <Box
+          display="grid"
+          gridTemplateColumns="repeat(2, 1fr)"
+          gap={3} 
+        >
+          <Box
+            component="img"
+            src={img1}
+            alt="Image 1"
+            sx={{ width: '200px', height: '200px', objectFit: 'cover' }} 
+          />
+          <Box
+            component="img"
+            src={img2}
+            alt="Image 2"
+            sx={{ width: '200px', height: '200px', objectFit: 'cover' }}  
+          />
+           <Box
+            component="img"
+            src={img4}
+            alt="Image 4"
+            sx={{ width: '200px', height: '200px', objectFit: 'cover' }} 
+          />
+          <Box
+            component="img"
+            src={img3}
+            alt="Image 3"
+            sx={{ width: '200px', height: '200px', objectFit: 'cover' }}  
+          />
+         
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

@@ -6,6 +6,7 @@
   margin-right: auto;
   width: 100%;
 }
+
 .content {
   height: 100%;
   width: 100%;
@@ -17,21 +18,27 @@
   position: relative;
 }
 
+/* Webkit-based browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 10px; /* Width of the scrollbar */
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #e0e0e0;
+  background: #f0f8ff; /* Light blue background for scrollbar track */
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #d27373;
+  background: #87cefa; /* Light blue color for scrollbar thumb */
+  border-radius: 10px; /* Optional: rounded corners */
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #e7b1b1;
+  background: #add8e6; /* Slightly darker blue when hovering */
 }
+
+/* Firefox */
+scrollbar-width: thin; /* Makes the scrollbar thin */
+scrollbar-color: #87cefa #f0f8ff; /* Thumb color and track color */

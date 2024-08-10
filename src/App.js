@@ -6,6 +6,7 @@ import Wardrobe_Management_System from "./scenes/Wardrobe_Management_System";
 import Team from "./scenes/team";
 import Wardrobe_details from "./scenes/wardrobe_details";
 import Contacts from "./scenes/contacts";
+import BudgetTrackingStylingHistory  from "./scenes/budgetstylinghistory";
 
 import Form from "./scenes/form";
 
@@ -37,6 +38,7 @@ function App() {
               <Route path="/form" element={<Form />} />
              
               <Route path="/pie" element={<Pie />} />
+              <Route path="/budgetstylinghistory" element={<BudgetTrackingStylingHistory />} />
               
               <Route path="/faq" element={<FAQ />} />
               <Route path="/calendar" element={<Calendar />} />

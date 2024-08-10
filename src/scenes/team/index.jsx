@@ -1,15 +1,20 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataTeam } from "../../data/mock_data";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
+import { mockDataTeam} from "../../data/mock_data";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-
 import Header from "../../components/Header";
 
 const Team = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  // Update fallback value for pinkAccent600 to pink color
+  const greenAccent600 = colors.greenAccent ? colors.greenAccent[600] : '#00FF00';
+  const pinkAccent600 = colors.pinkAccent ? colors.pinkAccent[600] : '#FF1493'; // Changed to pink
+  const grey100 = colors.grey ? colors.grey[100] : '#FFFFFF';  // Example fallback
+
   const columns = [
     { field: "id", headerName: "ID" },
     {
@@ -37,7 +42,7 @@ const Team = () => {
     },
     {
       field: "accessLevel",
-      headerName: "Access Level",
+      headerName: "Wardrobe Access",
       flex: 1,
       renderCell: ({ row: { access } }) => {
         return (
@@ -48,19 +53,19 @@ const Team = () => {
             display="flex"
             justifyContent="center"
             backgroundColor={
-              access === "admin"
-                ? colors.greenAccent[600]
-                : access === "user"
-                ? colors.greenAccent[700]
-                : colors.greenAccent[700]
+              access === "open"
+                ? greenAccent600
+                : pinkAccent600
             }
             borderRadius="4px"
           >
-            {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-           
-            {access === "user" && <LockOpenOutlinedIcon />}
-            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-              {access}
+            {access === "open" ? (
+              <LockOpenOutlinedIcon />
+            ) : (
+              <LockOutlinedIcon />
+            )}
+            <Typography color={grey100} sx={{ ml: "5px" }}>
+              {access === "open" ? "Open" : "Closed"}
             </Typography>
           </Box>
         );
@@ -70,7 +75,7 @@ const Team = () => {
 
   return (
     <Box m="20px">
-      <Header title="TEAM Members" subtitle="Managing the Team Members" />
+      <Header title="FRIENDS" subtitle="Friends and their Wardrobe Access" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -82,21 +87,21 @@ const Team = () => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[300],
+            color: colors.greenAccent ? colors.greenAccent[300] : '#00FF00',
           },
           "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: colors.blueAccent ? colors.blueAccent[700] : '#0000FF',
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
+            backgroundColor: colors.primary ? colors.primary[400] : '#CCCCCC',
           },
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: colors.blueAccent ? colors.blueAccent[700] : '#0000FF',
           },
           "& .MuiCheckbox-root": {
-            color: `${colors.greenAccent[200]} !important`,
+            color: colors.greenAccent ? `${colors.greenAccent[200]} !important` : '#00FF00',
           },
         }}
       >

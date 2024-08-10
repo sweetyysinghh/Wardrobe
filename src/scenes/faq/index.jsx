@@ -10,6 +10,7 @@ import { tokens } from "../../theme";
 const FAQ = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  
   return (
     <Box m="20px">
       <Header title="FAQ" subtitle="Frequently Asked Questions Page" />
@@ -17,74 +18,77 @@ const FAQ = () => {
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5">
-          What is a wardrobe management system?
+            What is the wardrobe management system developed by Sweety Singh?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          A wardrobe management system is a software or application designed to help individuals organize, track, and manage their clothing and accessories inventory. It provides features such as cataloging items, creating outfits, tracking usage, and planning for different occasions.
-
-  
-
-
-
-
-
-
-
+            The wardrobe management system developed by Sweety Singh includes several features:
+            <ul>
+              <li><strong>Color Palette:</strong> Demonstrates the colors of the clothes in the wardrobe in the form of a pie chart.</li>
+              <li><strong>Calendar Integration:</strong> Allows for daily planning and scheduling.</li>
+              <li><strong>Tabular Section:</strong> Displays clothes with details such as compartment, brand, seasonality, ID, name, compartments, clothing type, color, and accessories.</li>
+              <li><strong>Budget Tracking:</strong> Helps manage and track your clothing budget.</li>
+              <li><strong>Styling Tips:</strong> Provides fashion advice and styling suggestions.</li>
+              <li><strong>Outfit History Page:</strong> Keeps a record of outfits worn.</li>
+              
+            </ul>
           </Typography>
         </AccordionDetails>
       </Accordion>
+      
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5">
-          How can a wardrobe management system benefit me?
+            How can this wardrobe management system benefit me?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          A wardrobe management system can bring several benefits, including efficient organization of your wardrobe, saving time in choosing outfits, avoiding duplicate purchases, tracking clothing usage, discovering new outfit combinations, and maximizing the utility of your wardrobe.
+            This system helps you efficiently organize your wardrobe, save time choosing outfits, avoid duplicate purchases, track clothing usage, discover new outfit combinations, and maximize your wardrobe's utility.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
 
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5">
-          Can I customize the attributes and categories in the wardrobe management system?
+            Can I customize the attributes and categories in the wardrobe management system?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Yes, most wardrobe management systems allow customization of attributes and categories according to individual preferences. You can create your own labels, categorize clothing items by type, color, brand, seasonality, and add additional attributes like colour,brand and many more.
+            Yes, the system allows customization of attributes and categories according to your preferences. You can adjust labels, categorize items by type, color, brand, seasonality, and more.
           </Typography>
         </AccordionDetails>
       </Accordion>
+      
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5">
-          Is it possible to plan outfits and track their usage in the wardrobe management system?
+            Is it possible to plan outfits and track their usage in the wardrobe management system?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Yes, wardrobe management systems often provide features to plan and organize outfits. You can create and save outfit combinations, tag them with occasions or events, and track their usage to avoid repeating the same outfits frequently.
-           
+            Yes, the system includes features to plan and organize outfits. You can create and save outfit combinations, tag them for occasions, and track their usage.
           </Typography>
         </AccordionDetails>
       </Accordion>
+      
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5">
-          How secure is the data stored in a wardrobe management system?
+            How secure is the data stored in the wardrobe management system?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Data security is an important aspect of any software system, including wardrobe management systems. Reputable systems prioritize user data privacy and employ industry-standard security measures. It is advisable to choose a system with data encryption, secure authentication, and regular backups to ensure the safety of your information.
-            </Typography>
+            The system prioritizes data security with measures like encryption, secure authentication, and regular backups. Choosing a reputable system ensures the safety of your information.
+          </Typography>
         </AccordionDetails>
       </Accordion>
+      
     </Box>
   );
 };

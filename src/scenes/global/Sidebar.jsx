@@ -6,14 +6,13 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
-
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -24,11 +23,13 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       active={selected === title}
       style={{
         color: colors.blueAccent[100],
+        margin: "8px",  // Increased margin between items
+        fontSize: "10px",  // Increased font size for menu items
       }}
       onClick={() => setSelected(title)}
       icon={icon}
     >
-      <Typography>{title}</Typography>
+      <Typography fontSize="15px">{title}</Typography>  {/* Increased font size */}
       <Link to={to} />
     </MenuItem>
   );
@@ -38,7 +39,7 @@ const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [selected, setSelected] = useState("Wardrobe Managament System");
+  const [selected, setSelected] = useState("Wardrobe");
 
   return (
     <Box
@@ -50,7 +51,7 @@ const Sidebar = () => {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
-          padding: "5px 35px 5px 20px !important",
+          padding: "10px 20px 10px 20px !important",  // Adjusted padding for more spacing
         },
         "& .pro-inner-item:hover": {
           color: "#868dfb !important",
@@ -62,12 +63,11 @@ const Sidebar = () => {
     >
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
-          {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
-              margin: "10px 0 20px 0",
+              margin: "20px 0 20px 0",  // Adjusted margin for better spacing
               color: colors.grey[100],
             }}
           >
@@ -78,8 +78,8 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h3" color={colors.primary[100]}>
-                  WELCOME 
+                <Typography variant="h3" fontSize="26px" color={colors.primary[100]}>
+                  WELCOME
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
@@ -89,32 +89,33 @@ const Sidebar = () => {
           </MenuItem>
 
           {!isCollapsed && (
-            <Box mb="25px">
+            <Box mb="25px"> {/* Reduced margin-bottom */}
               <Box display="flex" justifyContent="center" alignItems="center">
                 <img
                   alt="profile-user"
                   width="100px"
                   height="100px"
                   src={"https://img.freepik.com/free-vector/cute-hippopotamus-cartoon-character-white-background_1308-75409.jpg?w=360&t=st=1688885430~exp=1688886030~hmac=582d7d747d731bcdd6ab5b55a51b9ae8c40bdf9879404ee64a65b27b487f5479"}
-                  />
+                />
               </Box>
               <Box textAlign="center">
                 <Typography
                   variant="h2"
+                  fontSize="20px"  // Increased font size
                   color={colors.grey[100]}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                 Sweety
+                  Sweety
                 </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
-                 Owner
+                <Typography variant="h5" fontSize="20px" color={colors.greenAccent[500]}>
+                  Owner
                 </Typography>
               </Box>
             </Box>
           )}
 
-          <Box paddingLeft={isCollapsed ? undefined : "10%"}>
+          <Box padding={isCollapsed ? undefined : "10%"}>
             <Item
               title="Wardrobe"
               to="/"
@@ -122,25 +123,10 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Data
-            </Typography>
             <Item
-              title="Manage Team"
+              title="Friends"
               to="/team"
               icon={<PeopleOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Contacts Information"
-              to="/contacts"
-              icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -151,14 +137,6 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Pages
-            </Typography>
             <Item
               title="Profile Form"
               to="/form"
@@ -173,21 +151,6 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
-              title="FAQ Page"
-              to="/faq"
-              icon={<HelpOutlineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-               Charts 
-               </Typography>
             
             <Item
               title="Colour Distribution"
@@ -195,8 +158,21 @@ const Sidebar = () => {
               icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-              />
-            
+            />
+            <Item
+              title="Wardrobe Insights"
+              to="/budgetstylinghistory"
+              icon={<InsightsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="FAQ Page"
+              to="/faq"
+              icon={<HelpOutlineOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
           </Box>
         </Menu>
       </ProSidebar>

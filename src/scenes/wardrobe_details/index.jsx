@@ -1,62 +1,28 @@
+import React, { useContext } from 'react';
 import { Box, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { tokens } from "../../theme";
-import {  mockWardrobe } from "../../data/mock_data";
-import Header from "../../components/Header";
+import { mockWardrobe } from '../../data/mock_data'; // Importing the mock data
+import Header from '../../components/Header';
+import { tokens } from '../../theme'; // Import tokens from theme.js
 
-const  Wardrobe_details = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+const WardrobeDetails = () => {
+  const theme = useTheme();  // Use the theme hook
+  const colors = tokens(theme.palette.mode);  // Get the color tokens based on the theme
+
   const columns = [
-    { field: "id", headerName: "ID" },
-    {
-      field: "Name",
-      headerName: "Name",
-      flex: 1,
-      cellClassName: "name-column--cell",
-    },
-    {
-      field: "No_Compartments",
-      headerName: "Compartments_Id",
-      flex: 1,
-    },
-    {
-      field: "Clothing_Type",
-      headerName: "Clothing Type",
-      flex: 1,
-    },
-    {
-      field: "Clothing_Color",
-      headerName: "Clothing Color",
-      flex: 1,
-    },
-    {
-      field: "Clothing_Brand",
-      headerName: "Clothing Brand",
-      flex: 1,
-    },
-    {
-        field: "Accessories_Type",
-        headerName: "Accessories Type",
-        flex: 1,
-      },
-      {
-        field: "Accessories_Color",
-        headerName: "Accessories Color",
-        flex: 1,
-      },
-      {
-        field: "Seasonality",
-        headerName: "Seasonality",
-        flex: 1,
-      },
-        
-      
+    { field: 'Date', headerName: 'Date', width: 150 },
+    { field: 'No_Compartments', headerName: 'Compartments', width: 150 },
+    { field: 'Clothing_Type', headerName: 'Clothing Type', width: 150 },
+    { field: 'Clothing_Color', headerName: 'Clothing Color', width: 150 },
+    { field: 'Clothing_Brand', headerName: 'Clothing Brand', width: 150 },
+    { field: 'Accessories_Type', headerName: 'Accessories Type', width: 150 },
+    { field: 'Accessories_Color', headerName: 'Accessories Color', width: 150 },
+    { field: 'Seasonality', headerName: 'Seasonality', width: 150 },
   ];
 
   return (
     <Box m="20px">
-      <Header title="My Wardrobe" subtitle="List of all Wardrobe Details" />
+      <Header title="My Wardrobe" subtitle="Personalized Wardrobe Details" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -87,7 +53,8 @@ const  Wardrobe_details = () => {
         }}
       >
         <DataGrid
-          checkboxSelection rows={mockWardrobe}
+          checkboxSelection
+          rows={mockWardrobe}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
@@ -96,4 +63,4 @@ const  Wardrobe_details = () => {
   );
 };
 
-export default Wardrobe_details;
+export default WardrobeDetails;

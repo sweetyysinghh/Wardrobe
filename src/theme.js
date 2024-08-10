@@ -160,6 +160,9 @@ export const themeSettings = (mode) => {
             },
             secondary: {
               main: colors.greenAccent[500],
+              pinkAccent: {
+                600: '#e91e63',  // Pink color
+              },
             },
             neutral: {
               dark: colors.grey[700],
