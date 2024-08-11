@@ -7,7 +7,7 @@
 
 The Personalized Fashion Chronicle is a comprehensive wardrobe management system developed by Sweety Singh. This project is designed to help you maintain a well-organized and efficient closet, making it easier to manage your outfits and plan your looks. The system offers a variety of features tailored to meet the needs of fashion enthusiasts and anyone looking to streamline their wardrobe.
 
-Project: https://66b83c21a67c72e7fae3ac32--extraordinary-queijadas-72a1c0.netlify.app/
+Project: https://personalised-wardrobe-chronicle.netlify.app/
 
 ### Key Features:
 
