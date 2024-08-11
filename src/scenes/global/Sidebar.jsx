@@ -138,7 +138,7 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Profile Form"
+              title="New Collection"
               to="/form"
               icon={<PersonOutlinedIcon />}
               selected={selected}
